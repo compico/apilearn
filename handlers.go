@@ -17,7 +17,8 @@ var (
 
 func getBooksListHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Add(ct, aj)
-	j, err := json.Marshal(books)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	j, err := json.Marshal(books.Books)
 	if err != nil {
 		fmt.Fprintf(w, "{\"error\":\"%v\"}", err)
 	}
@@ -29,6 +30,7 @@ func getBooksListHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Pa
 
 func addBookHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
 	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	p, err := strconv.Atoi(r.FormValue("pages"))
 	if err != nil {
@@ -52,6 +54,8 @@ func addBookHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params)
 }
 
 func updateBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	idreq := ps.ByName("id")
 	id, err := strconv.Atoi(idreq)
 
@@ -84,6 +88,8 @@ func updateBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Par
 }
 
 func getBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	idreq := ps.ByName("id")
 	id, err := strconv.Atoi(idreq)
 	if err != nil {
@@ -115,6 +121,8 @@ func getBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params
 }
 
 func deleteBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
+	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	idreq := ps.ByName("id")
 	id, err := strconv.Atoi(idreq)
 	if err != nil {
@@ -130,12 +138,14 @@ func deleteBookHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Par
 }
 
 func addTestBooksHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
-	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	books.AddTestBooks()
 	w.WriteHeader(http.StatusOK)
 }
 
 func getLenHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
+	w.Header().Add(ct, aj)
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	length := books.GetLen()
-	fmt.Fprintf(w, "{\"length\":%v}", strconv.Itoa(length))
+	fmt.Fprintf(w, "{\"lentable\":%v}", strconv.Itoa(length))
 }

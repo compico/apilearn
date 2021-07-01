@@ -20,8 +20,8 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
 `Ответ:`
 >Status code 200
 ```json
-    {
-        "books":[{
+[
+            {
             "id": 0,               //number
             "name":"bookname",     //string
             "author":"bookauthor", //string
@@ -33,8 +33,7 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
             "author":"anotherbookauthor",
             "pages": 15
             },
-        ]
-    }
+]
 ```
 ---
 `Запрос:`
@@ -62,12 +61,12 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
 >POST /api/v1/updatebook/{book_id}
 ```json
 {
-    //Не обязательно писать все поля
     "name":"bookname",
     "author":"bookauthor",
     "pages": 25
 }
 ```
+Не обязательно заполнять все поля.
 
 `Ответ:`
 >Status code 200
@@ -90,7 +89,7 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
 
 `Ответ:`
 ```json
- {"length":10}
+ {"lentable":10}
 ```
 >Status code 200
 ---
