@@ -89,7 +89,9 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
 
 `Ответ:`
 ```json
- {"lentable":10}
+{
+     "_length":10
+}
 ```
 >Status code 200
 ---

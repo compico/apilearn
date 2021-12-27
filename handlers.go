@@ -147,5 +147,5 @@ func getLenHandler(w http.ResponseWriter, r *http.Request, _ httprouter.Params) 
 	w.Header().Add(ct, aj)
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	length := books.GetLen()
-	fmt.Fprintf(w, "{\"lentable\":%v}", strconv.Itoa(length))
+	fmt.Fprintf(w, "{\"_length\":%v}", strconv.Itoa(length))
 }
