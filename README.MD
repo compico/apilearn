@@ -1,5 +1,8 @@
 # Apilearn
 
+Небольшой проект с inmemory хранилишем для изучения взаимодействия frontend'а и backend
+Эндпоинты совсем не по REST стандарту, если кто-то может поменять - киньте PR
+
 ## Интерфейсы
 
 Метод|Интефейсы|Описание
@@ -42,13 +45,12 @@ PUT     |/api/v1/addtestbooks        |Добавить тестовые книг
 `Ответ:`
 >Status code 200
 ```json
-    {
-            "id": 0,
-            "name":"bookname",
-            "author":"bookauthor",
-            "pages": 15
-            }
-    }
+{
+    "id": 0,
+    "name":"bookname",
+    "author":"bookauthor",
+    "pages": 15
+}
 ```
 ---
 `Запрос:`
